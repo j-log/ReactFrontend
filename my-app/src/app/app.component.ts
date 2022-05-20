@@ -11,6 +11,7 @@ export class AppComponent {
   onSubmit(data: any)
   {
     //this.http.post()
-    console.warn(data.vmname);
+    //console.warn(data.vmname);
+    console.warn(data);
   }
 }
