@@ -30,10 +30,3 @@ steps:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
           ArtifactName: 'drop'
           publishLocation: 'Container'
-      - task: AzureRmWebAppDeployment@4
-        inputs:
-          ConnectionType: 'AzureRM'
-          azureSubscription: 'Arm-svc-student'
-          appType: 'webAppLinux'
-          WebAppName: 'my-capstone-project'
-          packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
