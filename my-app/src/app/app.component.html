@@ -1,8 +1,11 @@
 <h1>Call Post API in Angular</h1>
 <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
-<input type="text" name="subscriptionid" ngModel placeholder="Subscription id"> <br><br>
-<input type="text" name="resourcegroup" ngModel placeholder="Resource Group"> <br><br>
-<input type="text" name="vmname" ngModel placeholder="VM name"> <br><br>
-<input type="text" name="authtoken" ngModel placeholder="Authorization token"> <br><br>
-<button type="submit">Create VM</button>
+    <p><b>Enter Location</b></p><input type="text" name="location" ngModel placeholder=""> <br><br>
+    <p><b>Enter Subscription id</b></p><input type="text" name="sub_id" ngModel placeholder=""> <br><br>
+    <p><b>Enter Computer Name</b></p><input type="text" name="computerName" ngModel placeholder=""> <br><br>
+    <p><b>Enter Admin UserName</b></p><input type="text" name="adminUsername" ngModel placeholder=""> <br><br>
+    <p><b>Enter Admin Password</b></p><input type="password" name="adminPassword" ngModel placeholder=""> <br><br>
+    <p><b>Enter Network Interface</b></p><input type="text" name="networkInterface" ngModel placeholder=""> <br><br>
+    <p><b>Enter Disk Name</b></p><input type="text" name="diskName" ngModel placeholder=""> <br><br>
+    <button type="submit">Create VM</button>
 </form>
