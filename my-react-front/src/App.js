@@ -10,13 +10,15 @@ function App() {
   const [adminPassword, set_adminPassword] = useState("");
   const [location, set_location] = useState("");
   const [rg_name, set_rg_name] = useState("");
+  const [vnet_rg_name, set_vnet_rg_name] = useState("");
   const [vnet_name, set_vnet_name] = useState("");
   const [message, set_Message] = useState("");
   
   let CreateSubmit = async (e) => {
     e.preventDefault();
+    //https://azvmapi.azurewebsites.net/
     try {
-      let res = await fetch("http://127.0.0.1:5000/create_update_vm", {
+      let res = await fetch("https://azvmapi.azurewebsites.net/create_update_vm", {
         method: "POST",
         body: JSON.stringify({
           sub_id : sub_id,
@@ -25,6 +27,7 @@ function App() {
           adminPassword : adminPassword,
           location : location,
           rg_name : rg_name,
+          vnet_rg_name : vnet_rg_name,
           vnet_name : vnet_name
         })
       });
@@ -49,7 +52,7 @@ function App() {
   let CheckSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://127.0.0.1:5000/check_status_vm", {
+      let res = await fetch("https://azvmapi.azurewebsites.net/check_status_vm", {
         method: "POST",
         body: JSON.stringify({
           sub_id : sub_id,
@@ -99,7 +102,7 @@ function App() {
             placeholder="< your subscription id >"
             onChange={(e) => set_sub_id(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Virtual Machine Name : </label>
+          <label className="Form-header">Virtual Machine Name : </label>
           <input
             className="form__input"
             type="text"
@@ -107,7 +110,7 @@ function App() {
             placeholder="< your azure virtual machine name >"
             onChange={(e) => set_computerName(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Location : </label>
+          <label className="Form-header">Location : </label>
           <input
             className="form__input"
             type="text"
@@ -115,7 +118,7 @@ function App() {
             placeholder="< your azure vm location >"
             onChange={(e) => set_location(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Resource Group Name : </label>
+          <label className="Form-header">Resource Group Name : </label>
           <input
             className="form__input"
             type="text"
@@ -123,15 +126,23 @@ function App() {
             placeholder="< your azure vm location resource group name >"
             onChange={(e) => set_rg_name(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Virtual Network Name : </label>
+          <label className="Form-header">Virtual Network Resource Group Name : </label>
+          <input
+            className="form__input"
+            type="text"
+            value={vnet_rg_name}
+            placeholder="< your vnet location resource group name >"
+            onChange={(e) => set_vnet_rg_name(e.target.value)}
+          />
+          <label className="Form-header">Virtual Network Name : </label>
           <input
             className="form__input"
             type="text"
             value={vnet_name}
-            placeholder="< your azure vm virtual network location >"
+            placeholder="< your virtual network name >"
             onChange={(e) => set_vnet_name(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Local Admin User : </label>
+          <label className="Form-header">Local Admin User : </label>
           <input
             className="form__input"
             type="text"
@@ -140,7 +151,7 @@ function App() {
             placeholder="< Your local admin user name >"
             onChange={(e) => set_adminUsername(e.target.value)}
           />
-          <label className="Form-header" htmlFor="firstName">Local Password : </label>
+          <label className="Form-header">Local Password : </label>
           <input
             className="form__input"
             type="password"
