@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c5b13fecb74dadb0807467b32415c3 }}/logan99/azure_react:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c5b13fecb74dadb0807467b32415c3 }}/azure_react:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'azure-vm-dispenser'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_fb2091dfa1214074900ec6ced3432ecd }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c5b13fecb74dadb0807467b32415c3 }}/logan99/azure_react:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c5b13fecb74dadb0807467b32415c3 }}/azure_react:${{ github.sha }}'
