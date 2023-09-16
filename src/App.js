@@ -18,6 +18,19 @@ function App() {
     e.preventDefault();
     //https://azvmapi.azurewebsites.net/
     try {
+      // let res = await fetch("http://127.0.0.1:5000/create_update_vm", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     sub_id : sub_id,
+      //     computerName : computerName,
+      //     adminUsername : adminUsername,
+      //     adminPassword : adminPassword,
+      //     location : location,
+      //     rg_name : rg_name,
+      //     vnet_rg_name : vnet_rg_name,
+      //     vnet_name : vnet_name
+      //   })
+      // });
       let res = await fetch("https://azvmapi.azurewebsites.net/create_update_vm", {
         method: "POST",
         body: JSON.stringify({
@@ -52,6 +65,14 @@ function App() {
   let CheckSubmit = async (e) => {
     e.preventDefault();
     try {
+      // let res = await fetch("http://127.0.0.1:5000/check_status_vm", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     sub_id : sub_id,
+      //     computerName : computerName,
+      //     rg_name : rg_name
+      //   })
+      // });
       let res = await fetch("https://azvmapi.azurewebsites.net/check_status_vm", {
         method: "POST",
         body: JSON.stringify({
